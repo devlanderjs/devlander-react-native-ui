@@ -1,14 +1,10 @@
 export const parameters = {
   backgrounds: {
-    default: 'twitter',
+    default: 'lightTheme',
     values: [
       {
-        name: '#e0e0e0',
-        value: '#00aced',
-      },
-      {
-        name: 'facebook',
-        value: '#3b5998',
+        name: 'lightTheme',
+        value: '#E1E1EA',
       },
     ],
   },
