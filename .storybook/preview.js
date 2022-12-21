@@ -4,7 +4,7 @@ export const parameters = {
     values: [
       {
         name: 'lightTheme',
-        value: '#E1E1EA',
+        value: '#EFF0F5',
       },
     ],
   },
