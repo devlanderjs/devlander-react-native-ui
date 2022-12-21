@@ -9,7 +9,8 @@ export const Basic = () => {
     <View style={{ height: 422.3226, width: 377.7742 }}>
       <NeumorphicButton
         onPress={() => updateArgs({ pressed: !args.pressed })}
-        pressedText={args.pressed ? 'ON' : 'OFF'}
+        pressedText={'ON'}
+        notPressedText={'OFF'}
         size={args.size}
         pressed={args.pressed}
       />

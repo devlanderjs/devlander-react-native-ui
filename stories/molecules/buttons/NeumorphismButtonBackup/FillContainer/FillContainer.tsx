@@ -21,12 +21,7 @@ function FillContainer(props: FillContainerProps) {
 
     const borderColor = borderInterpolatedColor.interpolate({
         inputRange: [0, 1],
-        outputRange: ["rgba(0,0,0,0.0)", "#rgba(255,255,255,0.00)"],
-    });
-
-    const transformScaleXY = borderInterpolatedColor.interpolate({
-        inputRange: [0, 1],
-        outputRange: [0.95, 1],
+        outputRange: ["rgba(0,0,0,0.1)", "#rgba(255,255,255,0.01)"],
     });
 
     useEffect(() => {
@@ -43,8 +38,8 @@ function FillContainer(props: FillContainerProps) {
             width: "100%",
             overflow: "hidden",
             borderRadius: borderRadius,
-            backgroundColor: "#E1E1EA",
 
+            backgroundColor: "#E1E1EA",
         }),
         [pressed]
     );
@@ -53,10 +48,8 @@ function FillContainer(props: FillContainerProps) {
         <Animated.View
             style={{
                 borderColor,
-                position: "absolute",
-                zIndex: 1,
-                transform: [{ scale: transformScaleXY }],
-                // borderWidth: borderWidth,
+                borderWidth: 1,
+                borderRadius: borderRadius,
                 height: size,
                 width: size,
                 overflow: "hidden",

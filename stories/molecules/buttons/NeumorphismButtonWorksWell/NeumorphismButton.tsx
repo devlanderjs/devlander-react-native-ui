@@ -38,19 +38,20 @@ function NeumorphismButton(props: NeumorphismButtonProps) {
     return (
         <TouchableWithoutFeedback onPress={() => handleOnPress()}>
             <ButtonContainer size={size} borderRadius={borderRadius}>
+                <ShadowOutside {...props}>
 
 
+                    <FillContainer {...props} >
+                        <FaceGradient {...props}>
+                            <ShadowInside {...props} />
 
-                <FillContainer {...props} >
+                            {iconName ? (
+                                <ButtonIcon fontSize={size / 2} name={iconName} />
+                            ) : null}
+                        </FaceGradient>
+                    </FillContainer>
 
-                    <FaceGradient {...props}>
-                        {iconName ? (
-                            <ButtonIcon fontSize={size / 2} name={iconName} />
-                        ) : null}
-                    </FaceGradient>
-                </FillContainer>
-                <ShadowOutside {...props} />
-                <ShadowInside {...props} />
+                </ShadowOutside>
             </ButtonContainer>
         </TouchableWithoutFeedback>
     );

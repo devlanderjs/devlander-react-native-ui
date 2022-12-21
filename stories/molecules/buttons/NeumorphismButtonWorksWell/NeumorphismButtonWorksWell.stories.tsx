@@ -14,7 +14,7 @@ export const Basic = (args) => {
 
 
 export default {
-  title: "components/NeumorphismButton",
+  title: "components/NeumorphismButtonWorksWell",
   component: Basic,
   args: {
     size: 80,

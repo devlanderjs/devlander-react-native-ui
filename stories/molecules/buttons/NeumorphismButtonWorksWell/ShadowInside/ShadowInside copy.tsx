@@ -31,7 +31,7 @@ function ShadowInside(props: ShadowInsideProps) {
                     duration: 500,
                 }),
             },
-            shadowOpacity: 0.5,
+            shadowOpacity: 0.6,
         }),
         [pressed]
     );
@@ -39,43 +39,44 @@ function ShadowInside(props: ShadowInsideProps) {
     const ShadowInsidePositiveInterpolate = useAnimatedStyle(
         () => ({
             shadowColor: "#00000073",
-            shadowRadius: 5,
+            shadowRadius: 15,
 
             shadowOffset: {
-                width: withTiming(pressed ? -5 : 0, {
+                width: withTiming(pressed ? 5 : 0, {
                     duration: 500,
                 }),
                 height: withTiming(pressed ? 5 : 0, {
                     duration: 500,
                 }),
             },
-            shadowOpacity: 0.5,
+            shadowOpacity: 0.6,
 
         }),
         [pressed]
     );
 
     return (
-        <ShadowInsideContainer borderRadius={borderRadius} size={size}>
+        <ShadowInsideContainer style={{ borderWidth: 1 }} borderRadius={borderRadius} size={size}>
 
-            <ShadowInsideNegative
-                style={[[ShadowInsidePositiveInterpolate]]}
-                borderRadius={borderRadius}
-                blur={blur}
-                distance={distance}
-                size={size}
-            >
 
-            </ShadowInsideNegative>
             <ShadowInsidePositive
                 style={[[ShadowOutsidePositiveInterpolate]]}
                 borderRadius={borderRadius}
                 blur={blur}
                 distance={distance}
                 size={size}
-            ></ShadowInsidePositive>
+            >
+                <ShadowInsideNegative
+                    style={[[ShadowInsidePositiveInterpolate]]}
+                    borderRadius={borderRadius}
+                    blur={blur}
+                    distance={distance}
+                    size={size}
+                >
 
-        </ShadowInsideContainer >
+                </ShadowInsideNegative>
+            </ShadowInsidePositive>
+        </ShadowInsideContainer>
     );
 }
 

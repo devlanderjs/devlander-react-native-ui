@@ -4,10 +4,10 @@ import {
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-export const ButtonContainer = styled(View) <{ size: number, borderRadius: number }>`
+export const ButtonContainer = styled(View) <{ size: number }>`
   width: ${({ size }) => `${size}px`}
   height: ${({ size }) => `${size}px`}
-  border-radius: ${({ borderRadius }) => `${borderRadius}px`}
+  overflow: visible;
 `;
 
 export const ButtonIcon = styled(Ionicons) <{

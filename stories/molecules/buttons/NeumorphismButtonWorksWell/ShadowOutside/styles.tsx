@@ -14,10 +14,10 @@ interface ShadowOutsideInterface {
 export const ShadowOutsidePositive = styled(Animated.View) <ShadowOutsideInterface>`
   display: flex;
   border-radius: ${({ borderRadius }) => `${borderRadius}px`};
+ 
   width: ${({ size }) => `${size}px`}
     height: ${({ size }) => `${size}px`}
-  position: absolute;
-  z-index: 5;
+
 
  
 `;
@@ -25,9 +25,9 @@ export const ShadowOutsidePositive = styled(Animated.View) <ShadowOutsideInterfa
 export const ShadowOutsideNegative = styled(Animated.View) <ShadowOutsideInterface>`
   display: flex;
   border-radius: ${({ borderRadius }) => `${borderRadius}px`};
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 5;
+  width: ${({ size }) => `${size}px`}
+  height: ${({ size }) => `${size}px`}
 
+
+ 
 `;

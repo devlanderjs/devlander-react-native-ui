@@ -26,7 +26,7 @@ function FillContainer(props: FillContainerProps) {
 
     const transformScaleXY = borderInterpolatedColor.interpolate({
         inputRange: [0, 1],
-        outputRange: [0.95, 1],
+        outputRange: [1.05, 1],
     });
 
     useEffect(() => {
@@ -53,8 +53,6 @@ function FillContainer(props: FillContainerProps) {
         <Animated.View
             style={{
                 borderColor,
-                position: "absolute",
-                zIndex: 1,
                 transform: [{ scale: transformScaleXY }],
                 // borderWidth: borderWidth,
                 height: size,

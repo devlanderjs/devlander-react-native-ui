@@ -8,16 +8,18 @@ import Animated, {
     useSharedValue,
     useAnimatedStyle,
 } from 'react-native-reanimated';
+import ButtonText from './ButtonText';
 
 export type NeumorphicButtonProps = {
     size?: number;
     onPress?: () => void;
     pressed?: boolean;
     pressedText?: string;
+    notPressedText?: string;
 }
 
 function NeumorphicButton(props: NeumorphicButtonProps) {
-    const { size, pressed, onPress, pressedText } = props;
+    const { size, pressed, onPress, pressedText, notPressedText } = props;
     return (
         <Animated.View style={[{
             width: size,
@@ -26,7 +28,7 @@ function NeumorphicButton(props: NeumorphicButtonProps) {
 
         }]}>
             <TouchableOpacity onPress={() => onPress()} style={{ width: '100%', height: '100%', position: 'absolute', justifyContent: 'center', alignItems: 'center', zIndex: 50 }} >
-                <Text style={{ fontSize: 20, fontFamily: 'Figtree', color: '#DADBDF' }}>{pressedText}</Text>
+                <ButtonText size={size} pressed={pressed} pressedText={pressedText} notPressedText={notPressedText} />
             </TouchableOpacity>
 
 

@@ -21,36 +21,39 @@ function ShadowInside(props: ShadowInsideProps) {
 
     const ShadowOutsidePositiveInterpolate = useAnimatedStyle(
         () => ({
-            shadowColor: "#fff",
+            shadowColor: withTiming(pressed ? "#00000073" : "#fff", {
+                duration: 500,
+            }),
             shadowRadius: 15,
             shadowOffset: {
-                width: withTiming(pressed ? 10 : 0, {
+                width: withTiming(pressed ? 10 : -10, {
                     duration: 500,
                 }),
-                height: withTiming(pressed ? 10 : 0, {
+                height: withTiming(pressed ? 10 : -10, {
                     duration: 500,
                 }),
             },
-            shadowOpacity: 0.5,
+            shadowOpacity: 0.6,
         }),
         [pressed]
     );
 
     const ShadowInsidePositiveInterpolate = useAnimatedStyle(
         () => ({
-            shadowColor: "#00000073",
-            shadowRadius: 5,
+            shadowColor: withTiming(pressed ? "#fff" : "#00000073", {
+                duration: 500,
+            }),
+            shadowRadius: 15,
 
             shadowOffset: {
-                width: withTiming(pressed ? -5 : 0, {
+                width: withTiming(pressed ? -5 : 5, {
                     duration: 500,
                 }),
-                height: withTiming(pressed ? 5 : 0, {
+                height: withTiming(pressed ? -5 : 5, {
                     duration: 500,
                 }),
             },
-            shadowOpacity: 0.5,
-
+            shadowOpacity: 0.1,
         }),
         [pressed]
     );
@@ -58,24 +61,25 @@ function ShadowInside(props: ShadowInsideProps) {
     return (
         <ShadowInsideContainer borderRadius={borderRadius} size={size}>
 
-            <ShadowInsideNegative
-                style={[[ShadowInsidePositiveInterpolate]]}
-                borderRadius={borderRadius}
-                blur={blur}
-                distance={distance}
-                size={size}
-            >
 
-            </ShadowInsideNegative>
             <ShadowInsidePositive
                 style={[[ShadowOutsidePositiveInterpolate]]}
                 borderRadius={borderRadius}
                 blur={blur}
                 distance={distance}
                 size={size}
-            ></ShadowInsidePositive>
+            >
+                <ShadowInsideNegative
+                    style={[[ShadowInsidePositiveInterpolate]]}
+                    borderRadius={borderRadius}
+                    blur={blur}
+                    distance={distance}
+                    size={size}
+                >
 
-        </ShadowInsideContainer >
+                </ShadowInsideNegative>
+            </ShadowInsidePositive>
+        </ShadowInsideContainer>
     );
 }
 

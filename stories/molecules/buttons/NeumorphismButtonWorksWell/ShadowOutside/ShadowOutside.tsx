@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import { useAnimatedStyle, withTiming } from "react-native-reanimated";
 import { NeumorphismButtonProps } from "../NeumorphismButton";
 import { ShadowOutsidePositive, ShadowOutsideNegative } from "./styles";
@@ -32,18 +31,17 @@ function ShadowOutside(props: ShadowOutsideProps) {
             }),
             shadowRadius: 15,
             shadowOffset: {
-                width: withTiming(pressed ? 10 : -10, {
+                width: withTiming(pressed ? 0 : -10, {
                     duration: 500,
                 }),
-                height: withTiming(pressed ? 10 : -10, {
+                height: withTiming(pressed ? 0 : -10, {
                     duration: 500,
                 }),
             },
             // shadowOpacity: 0.6,
-            // shadowOpacity: withTiming(pressed ? 0 : 0.15, {
-            //     duration: 500,
-            // }),
-            shadowOpacity: 0.15
+            shadowOpacity: withTiming(pressed ? 0 : 0.15, {
+                duration: 500,
+            }),
         }),
         [pressed, distance]
     );
@@ -57,43 +55,38 @@ function ShadowOutside(props: ShadowOutsideProps) {
             shadowRadius: 15,
 
             shadowOffset: {
-                width: withTiming(pressed ? -5 : 5, {
+                width: withTiming(pressed ? 0 : 5, {
                     duration: 500,
                 }),
-                height: withTiming(pressed ? -5 : 5, {
+                height: withTiming(pressed ? 0 : 5, {
                     duration: 500,
                 }),
             },
-            // shadowOpacity: withTiming(pressed ? 0 : 0.40, {
-            //     duration: 500,
-            // }),
-            shadowOpacity: 0.40
+            shadowOpacity: withTiming(pressed ? 0 : 0.40, {
+                duration: 500,
+            }),
         }),
         [pressed]
     );
 
     return (
-        <View style={{ borderWidth: 1, borderColor: 'red', width: size, height: size }}>
-
-            <ShadowOutsidePositive
-                style={[[shadowOutSideNegativeInterpolate]]}
+        <ShadowOutsidePositive
+            style={[[shadowOutSideNegativeInterpolate]]}
+            borderRadius={borderRadius}
+            blur={blur}
+            distance={distance}
+            size={size}
+        >
+            <ShadowOutsideNegative
+                style={[[shadowOutSidePositiveInterpolate]]}
                 borderRadius={borderRadius}
                 blur={blur}
                 distance={distance}
                 size={size}
             >
-                <ShadowOutsideNegative
-                    style={[[shadowOutSidePositiveInterpolate]]}
-                    borderRadius={borderRadius}
-                    blur={blur}
-                    distance={distance}
-                    size={size}
-                >
-                    {children ? children : null}
-                </ShadowOutsideNegative>
-            </ShadowOutsidePositive>
-        </View>
-
+                {children ? children : null}
+            </ShadowOutsideNegative>
+        </ShadowOutsidePositive>
     );
 }
 

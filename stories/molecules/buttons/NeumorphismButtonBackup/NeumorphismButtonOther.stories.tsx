@@ -14,7 +14,7 @@ export const Basic = (args) => {
 
 
 export default {
-  title: "components/NeumorphismButton",
+  title: "components/NeumorphismButddton",
   component: Basic,
   args: {
     size: 80,
@@ -22,7 +22,7 @@ export default {
     borderRadius: 40,
     pressed: false,
     blur: 15,
-    iconName: "power",
+    iconName: "heart",
   },
   argTypes: {
     isPressed: false,

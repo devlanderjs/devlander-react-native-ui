@@ -31,7 +31,7 @@ function ShadowInside(props: ShadowInsideProps) {
                     duration: 500,
                 }),
             },
-            shadowOpacity: 0.5,
+            shadowOpacity: 0.6,
         }),
         [pressed]
     );
@@ -39,7 +39,7 @@ function ShadowInside(props: ShadowInsideProps) {
     const ShadowInsidePositiveInterpolate = useAnimatedStyle(
         () => ({
             shadowColor: "#00000073",
-            shadowRadius: 5,
+            shadowRadius: 15,
 
             shadowOffset: {
                 width: withTiming(pressed ? -5 : 0, {
@@ -49,7 +49,7 @@ function ShadowInside(props: ShadowInsideProps) {
                     duration: 500,
                 }),
             },
-            shadowOpacity: 0.5,
+            shadowOpacity: 0.6,
 
         }),
         [pressed]
@@ -73,9 +73,10 @@ function ShadowInside(props: ShadowInsideProps) {
                 blur={blur}
                 distance={distance}
                 size={size}
-            ></ShadowInsidePositive>
+            >
 
-        </ShadowInsideContainer >
+            </ShadowInsidePositive>
+        </ShadowInsideContainer>
     );
 }
 

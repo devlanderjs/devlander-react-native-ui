@@ -23,8 +23,6 @@ function FaceGradient(props: FaceGradientProps) {
 
 
         return ({
-            start: { x: pressed ? -7 : 7, y: 0 },
-
             colors: gradientColors
         })
     }
@@ -39,8 +37,6 @@ function FaceGradient(props: FaceGradientProps) {
         <AnimatedLinearGradient
             animatedProps={animatedGradProps}
             // borderWidth={20}
-            // location={[0, 1]}
-
             borderRadius={borderRadius}
             size={size}
         // borderColor={borderColor}

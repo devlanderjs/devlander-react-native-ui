@@ -12,6 +12,7 @@ export interface NeumorphismButtonProps {
     size: number;
     distance: number;
     pressed: boolean;
+
     iconName?: string;
     blur: number;
     borderRadius: number;
@@ -25,6 +26,7 @@ function NeumorphismButton(props: NeumorphismButtonProps) {
         size = 150,
         distance = 100,
         pressed = false,
+
         blur = 50,
         borderRadius = 30,
     } = props;
@@ -32,25 +34,28 @@ function NeumorphismButton(props: NeumorphismButtonProps) {
     const handleOnPress = () => {
         console.log("pressed");
         onPress();
-
+        // shadowValue.value = withTiming(1000, {
+        //     duration: 500,
+        //     easing: Easing.out(Easing.exp),
+        // });
     };
 
     return (
         <TouchableWithoutFeedback onPress={() => handleOnPress()}>
-            <ButtonContainer size={size} borderRadius={borderRadius}>
+            <ButtonContainer size={size}>
+                <ShadowOutside {...props}>
+                    <ShadowInside {...props} />
 
 
+                    <FillContainer {...props} >
+                        <FaceGradient {...props}>
+                            {iconName ? (
+                                <ButtonIcon fontSize={size / 2} name={iconName} />
+                            ) : null}
+                        </FaceGradient>
+                    </FillContainer>
 
-                <FillContainer {...props} >
-
-                    <FaceGradient {...props}>
-                        {iconName ? (
-                            <ButtonIcon fontSize={size / 2} name={iconName} />
-                        ) : null}
-                    </FaceGradient>
-                </FillContainer>
-                <ShadowOutside {...props} />
-                <ShadowInside {...props} />
+                </ShadowOutside>
             </ButtonContainer>
         </TouchableWithoutFeedback>
     );
